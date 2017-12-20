@@ -95,19 +95,6 @@ bot.on('message', function(event) {
 
 
 //demo
-{ type: 'message',
-  replyToken: 'xxxxxxx',
-  source: 
-    { userId: 'xxxxxxx',
-      type: 'user',
-      profile: [Function] },
-  timestamp: 1484472609833,
-  message: 
-    { type: 'text',
-      id: 'xxxxxxxxxx',
-      text: 'hihi',
-      content: [Function] },
-  reply: [Function] }
-}
+
 
 app.listen(port, function(){console.log("Lesson manager developed by Andrew is running on port: "+port);});
