@@ -44,6 +44,7 @@ app.post('/uploadfile', function(req, res) {
 		res.write('File uploaded and moved!');
 		res.end();
     });
+	});
 })
 
 app.get('/json', function(req, res) {
