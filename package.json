@@ -1,0 +1,23 @@
+{
+  "name": "lesson-manager",
+  "version": "0.0.1",
+  "description": "A lesson manager made by Andrew",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Andrew",
+    "lesson",
+    "manager"
+  ],
+  "author": "Andrew",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonfile": "^4.0.0",
+    "linebot": "^1.3.0",
+    "rss": "^1.2.2"
+  }
+}
