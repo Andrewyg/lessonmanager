@@ -3,6 +3,7 @@ var express = require('express'),
 	bodyparser = require('body-parser'),
 	rss = require('rss'),
 	formidable = require('formidable'),
+	fs = require('fs'),
 	jsonfile = require('jsonfile');
 	
 
@@ -47,8 +48,20 @@ app.post('/uploadfile', function(req, res) {
 	});
 })
 
+
 app.get('/json', function(req, res) {
 	res.json(readdata());
 });
+
+app.use('/download', express.static('./upload'));
+
+app.get('/lesson/:date', function(req, res) {
+	var data = readdata();
+	var thislesson = data[req.params.date];
+	res.write("<h1>"+thislesson.title+"</h1><hr />");
+	res.write("<p>"+thislesson.detail+"</p><hr />");
+	res.write("<h1><a href=\"/download/"+thislesson.file+"\">Download lesson file</a></h1>");
+	res.end();
+})
 
 app.listen(port, function(){console.log("Lesson manager developed by Andrew is running on port: "+port);});
