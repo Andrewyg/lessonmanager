@@ -26,6 +26,7 @@ app.post('/api/line/recieve', linebotParser);
 bot.on('message', function(event) {
   if (event.message.type = 'text') {
     var msg = event.message.text;
+	  /*
 	var data = readdata();
 	if (msg.indexOf("最近課程") != -1) {
 		event.reply(data[data.newest].url).then(function(data) {
@@ -79,7 +80,7 @@ bot.on('message', function(event) {
 		  console.log('error');
 		});
 	}
-	
+	*/
 	
     event.reply(msg).then(function(data) {
       // success
