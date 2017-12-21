@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
   for(i=0; i<data.lessonlist.length; i++) {
     postsarray.push(data[data.lessonlist[i]]);
   }
-	res.render('index', {
+	res.render('index.pug', {
 		posts: postsarray
 	});
 })
