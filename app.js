@@ -23,7 +23,7 @@ function writefile(obj) {
 app.get('/add', function(req, res) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<form action="uploadfile" method="post" enctype="multipart/form-data">');
-	res.write('<input type="file" name="filetoupload"><br><input type="text" name="helloworld"><br>');
+	res.write('<input type="file" name="filetoupload">');
 	res.write('<input type="submit">');
 	res.write('</form>');
 	return res.end();
