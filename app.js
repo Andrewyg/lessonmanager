@@ -9,6 +9,7 @@ var express = require('express'),
 
 //server config
 var port = process.env.PORT || 5118;
+app.use(bodyparser.urlencoded({ extended: false }));
 
 //global function
 function readdata() {
@@ -22,7 +23,7 @@ function writefile(obj) {
 app.get('/add', function(req, res) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<form action="uploadfile" method="post" enctype="multipart/form-data">');
-	res.write('<input type="file" name="filetoupload"><br>');
+	res.write('<input type="file" name="filetoupload"><br><input type="text" name="helloworld"><br>');
 	res.write('<input type="submit">');
 	res.write('</form>');
 	return res.end();
@@ -42,7 +43,7 @@ app.post('/uploadfile', function(req, res) {
 			data[nowdate] = {};
 		}
 		data[nowdate].file = files.filetoupload.name;
-		res.write('File uploaded and moved!');
+		res.write(req.body.helloworld);
 		res.end();
     });
 	});
