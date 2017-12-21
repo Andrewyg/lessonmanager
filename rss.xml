@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>Lesson Manager's RSS feed</title>
+  <link>https://lessonmanager.herokuapp.com/rss</link>
+  <description>Free web building tutorials</description>
+  <copyright>© 2018 Lesson Manager by Andrew</copyright>
+</channel>
+
+</rss>
