@@ -23,31 +23,27 @@ function writefile(obj) {
 app.get('/add', function(req, res) {
 	res.writeHead(200, {'Content-Type': 'text/html'});
 	res.write('<form action="uploadfile" method="post" enctype="multipart/form-data">');
-	res.write('<input type="file" name="filetoupload">');
+	res.write('<input type="file" name="lessonfile">');
 	res.write('<input type="submit">');
 	res.write('</form>');
 	return res.end();
 })
 
 app.post('/uploadfile', function(req, res) {
-	var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-    var oldpath = files.filetoupload.path;
-    var newpath = 'upload/' + files.filetoupload.name;
-    fs.rename(oldpath, newpath, function (err) {
-		if (err) throw err;
-		var data = readdata();
-		var d = new Date();
-		var nowdate = d.getFullYear()+(d.getMonth()+1)+d.getDate();
-		if (data[nowdate]) {
-			data[nowdate] = {};
-		}
-		data[nowdate].file = files.filetoupload.name;
-		res.write(req.body.helloworld);
-		res.end();
-    });
-	});
-})
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+ 
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  let sampleFile = req.files.lessonfile;
+ 
+  // Use the mv() method to place the file somewhere on your server
+  sampleFile.mv('/upload/'+req.files.lessonfile.name, function(err) {
+    if (err)
+      return res.status(500).send(err);
+ 
+    res.send('File uploaded!');
+  });
+});
 
 
 app.get('/json', function(req, res) {
