@@ -33,7 +33,7 @@ app.post('/uploadfile', function(req, res) {
 	var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
     var oldpath = files.filetoupload.path;
-    var newpath = './upload/' + files.filetoupload.name;
+    var newpath = 'upload/' + files.filetoupload.name;
     fs.rename(oldpath, newpath, function (err) {
 		if (err) throw err;
 		var data = readdata();
